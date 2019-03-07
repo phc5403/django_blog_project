@@ -23,7 +23,7 @@ import portfolio.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', blog.views.blog, name = "blog"),
+    path('', blog.views.blog, name = "blog"),
     # blog 폴더의 URL(blog/new 등)을 분할 처리. -> 해당 app 별로 url 처리를 분할한다.
     path('blog/', include('blog.urls')),
     path('portfolio/', include('portfolio.urls')),
