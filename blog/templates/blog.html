@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+<!-- base.html을 기본으로 가져온다 -->
+
+<!-- endblock 사이의 내용을 base.html에 있는 content에 적용시킨다. -->
+{% block content %}
+
+    {% for blog in blogs.all %}
+    <br>
+    <div class="container">
+        <!-- 중앙 정렬을해주는 부트스트랩 -->
+        <!-- blog.id 값은 url path에 적었던 <int:blog_id> 안에 들어간다.  -->
+        <a href="{% url 'detail' blog.id %}">
+            <h1> {{blog.title}} </h1>
+        </a>
+        <p> {{blog.pub_date }} </p> <!-- blog.pub_date_pretty -->
+        <p> {{blog.summary}} <a href="{% url 'detail' blog.id %}">...more</a> </p>
+    </div>
+    {% endfor %}
+
+{% endblock %}
